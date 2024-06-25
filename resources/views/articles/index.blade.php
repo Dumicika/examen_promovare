@@ -35,17 +35,17 @@
                     </td>
                     <td>{{ $article->info }}</td>
                     <td>
-                        <form action="{{ route('articles.destroy', $article) }}" method="POST">
+                        <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                        
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5"></td>
+                    <td colspan="5">No articles found.</td>
                 </tr>
             @endforelse
         </tbody>
